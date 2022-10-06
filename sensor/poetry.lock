@@ -1,0 +1,18 @@
+[[package]]
+name = "wabson.chafon-rfid"
+version = "0.1.0"
+description = "Read RFID data from Chafon UHF readers"
+category = "main"
+optional = false
+python-versions = ">=3.4"
+
+[metadata]
+lock-version = "1.1"
+python-versions = "^3.7"
+content-hash = "8b7b74aea775e53af3e56fb61d0fc8444fd2604e823c97b5842db2b94f3c9733"
+
+[metadata.files]
+"wabson.chafon-rfid" = [
+    {file = "wabson.chafon-rfid-0.1.0.tar.gz", hash = "sha256:6ec6fe012ca8e2bbae60317bacc00cc8f33949093a5944861a75059469f070ed"},
+    {file = "wabson.chafon_rfid-0.1.0-py3-none-any.whl", hash = "sha256:8c1ef7323c710b33e7aa8a5f1bdb566f64691dedf4b3dbdf52f6851d18faed98"},
+]

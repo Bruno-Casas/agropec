@@ -1,5 +1,5 @@
 from flask import g
-from flask_peewee.db import Database, DatabaseProxy, Proxy
+from flask_peewee.db import Database, DatabaseProxy
 
 db = DatabaseProxy()
 

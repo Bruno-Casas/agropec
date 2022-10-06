@@ -1,0 +1,4 @@
+FLASK_DEBUG=1
+FLASK_APP=agropec/app.py
+
+FLASK_RUN_PORT=3000

@@ -1,1 +1,0 @@
-wabson.chafon-rfid==0.1.0
