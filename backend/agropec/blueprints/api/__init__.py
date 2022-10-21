@@ -25,6 +25,8 @@ class HelloWorld(Resource):
             earring = earring,
         )
         
+        print(str(bv))
+        
         return model_to_dict(bv)
     
     def get(self):
@@ -33,9 +35,14 @@ class HelloWorld(Resource):
         for row in rows:
             result.append(model_to_dict(row))
             
-        return result            
+        return result         
+    
+class Ping(Resource):
+    def get(self):
+        return None, 204
 
 api.add_resource(HelloWorld, '/')
+api.add_resource(Ping, '/ping')
 
 def after_request(response):
     response.headers.add('Access-Control-Allow-Origin', '*')

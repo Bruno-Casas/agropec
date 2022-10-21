@@ -10,18 +10,21 @@ export class FormService {
 
   saveBovine(bovine: Bovine) {
     console.log(bovine);
+
+    let api = window['pywebview'].api
+    api.store_cache('id', bovine)
     
-    fetch('http://localhost:3000/', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(bovine)
-    })
-    .then(response => response.text())
-    .then(console.log)
-    .catch(console.error)
+    // fetch('http://localhost:3000/', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify(bovine)
+    // })
+    // .then(response => response.text())
+    // .then(console.log)
+    // .catch(console.error)
   }
 
   async getAll() {
