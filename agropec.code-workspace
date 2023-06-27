@@ -1,0 +1,46 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "webview"
+		},
+		{
+			"path": "backend"
+		},
+		{
+			"path": "protocol"
+		},
+		{
+			"path": "frontend"
+		}
+	],
+	"settings": {
+		"sqltools.connections": [
+			{
+				"previewLimit": 50,
+				"driver": "SQLite",
+				"database": "${workspaceFolder:agropec}/webview/data/data.db",
+				"name": "Teste2"
+			},
+			{
+				"previewLimit": 50,
+				"driver": "SQLite",
+				"name": "Teste",
+				"database": "${workspaceFolder:agropec}/protocol/data/data.db"
+			},
+			{
+				"previewLimit": 50,
+				"driver": "SQLite",
+				"database": "${workspaceFolder:agropec}/protocol/data/data2.db",
+				"name": "data2"
+			}
+		],
+		"sqltools.useNodeRuntime": true
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": []
+	}
+}

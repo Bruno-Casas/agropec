@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from agropec.ext import configuration
 
@@ -10,3 +11,6 @@ def create_app():
     app = minimal_app()
     configuration.load_extensions(app)
     return app
+
+
+print(os.getcwd())

@@ -1,10 +1,13 @@
 from peewee import *
+
+from .Category import Category
 from .Base import BaseModel
 from .Earring import Earring
 
 class Bovine(BaseModel):
-    id = BigAutoField()
+    id = AutoField()
     sex = SmallIntegerField()
-    category = SmallIntegerField()
     weight = FloatField()
-    earring = ForeignKeyField(Earring, backref='tweets')
+    category = ForeignKeyField(Category, backref='id')
+    earring = ForeignKeyField(Earring, backref='id')
+

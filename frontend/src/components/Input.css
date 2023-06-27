@@ -1,0 +1,35 @@
+.input, .radio {
+    --accent-color: #06113c;
+    --background-color: white;
+    --border-radius: 1em;
+
+    --option-border: ;
+    --option-padding: ;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
+}
+
+.input, .radio label:first-child {
+    font-weight: bold;
+}
+
+.input-container {
+    position: relative;
+    border: 0.175rem solid gray;
+    border-radius: 0.5rem;
+}
+
+.input-container input:not(.radio__input) {
+    margin: 0;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 0.36rem;
+}
+
+.input-container input:focus {
+    border: none;
+    outline: 0;
+}

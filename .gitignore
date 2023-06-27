@@ -1,2 +1,6 @@
 .vscode
 .venv
+**/*.db
+**/*.pyc
+**/dist/
+**/build/

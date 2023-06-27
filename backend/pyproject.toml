@@ -9,11 +9,12 @@ readme = "README.md"
 python = "^3.10"
 Flask = "^2.2.2"
 dynaconf = "^3.1.9"
-peewee = "^3.15.2"
+peewee = "^3.16.2"
 python-dotenv = "^0.21.0"
 Flask-RESTful = "^0.3.9"
 peewee-migrate = "^1.5.1"
-
+psycopg2 = "^2.9.5"
+flask-peewee = "^3.0.4"
 
 [build-system]
 requires = ["poetry-core"]

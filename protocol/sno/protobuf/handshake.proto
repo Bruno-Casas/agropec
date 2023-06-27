@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+message SearchRequest {
+    string query = 1;
+    int32 page_number = 2;
+    int32 result_per_page = 3;
+  }
+
+message Earring {   // Level 2
+  int64 id = 1;
+  string value = 2;
+  int32 color = 3;
+}

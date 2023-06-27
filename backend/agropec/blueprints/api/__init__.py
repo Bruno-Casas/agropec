@@ -1,48 +1,24 @@
+from agropec.model.Color import Color
 from flask import Blueprint
 from flask_restful import Api, Resource
 from flask import request
 from agropec.model.Bovine import Bovine
 
 from agropec.model.Earring import Earring
-from playhouse.shortcuts import model_to_dict, dict_to_model
+#from agropec.blueprints.api.resources.bovine import BovineResource
 
-bp = Blueprint("api", __name__)
-api = Api(bp)
-
-class HelloWorld(Resource):
-    def post(self):
-        json = request.get_json()
-        
-        earring = Earring.create(
-            value = json.get('earring').get('value'),
-            color = json.get('earring').get('color'),
-        )
-        
-        bv = Bovine.create(
-            sex = json.get('sex'),
-            category = json.get('category'),
-            weight = json.get('weight'),
-            earring = earring,
-        )
-        
-        print(str(bv))
-        
-        return model_to_dict(bv)
+module_blueprint = Blueprint("api", __name__)
+rest_api = Api(module_blueprint, '/api/rest')         
     
-    def get(self):
-        result = []
-        rows=Bovine.select()
-        for row in rows:
-            result.append(model_to_dict(row))
-            
-        return result         
-    
-class Ping(Resource):
+class _PingResource(Resource):
     def get(self):
         return None, 204
 
-api.add_resource(HelloWorld, '/')
-api.add_resource(Ping, '/ping')
+#api.add_resource(HelloWorld, '/')
+rest_api.add_resource(_PingResource, '/ping')
+
+from os.path import dirname, basename, isfile, join
+import glob
 
 def after_request(response):
     response.headers.add('Access-Control-Allow-Origin', '*')
@@ -51,7 +27,14 @@ def after_request(response):
     return response
 
 def init_app(app):
-    Earring.create_table()
-    Bovine.create_table()
-    app.register_blueprint(bp)
+    resources_path = 'agropec.blueprints.api.resources'
+    resources_names = glob.glob(join(dirname(__file__), "resources/*.py"))
+    
+    for resource in resources_names:
+        if isfile(resource) and not resource.endswith('__init__.py'):
+            __import__(f'{resources_path}.{basename(resource)[:-3]}')
+            
+        pass
+    
+    app.register_blueprint(module_blueprint)
     app.after_request(after_request)

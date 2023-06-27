@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+message UdpHello {
+    int32 port = 1;
+}

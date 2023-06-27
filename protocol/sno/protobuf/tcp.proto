@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+message HandShake {
+    string hash = 1;
+}

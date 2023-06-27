@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+message DataSummary {
+    int64 chain_size = 1;
+}
+
+enum BlockType {
+    COLLECTION = 0;
+    PACKAGE = 1;
+}
+
+message Package {
+    string sum = 1;
+    bytes data = 2;
+}
+
+message Collection {
+    string uuid = 1;
+    repeated Package packages = 2;
+}
+
+message CollectionList {
+    repeated Collection collections = 2;
+}
+
+message Block {
+    BlockType type = 1;
+    string sum = 2;
+    optional Collection collection = 3;
+    optional Package package = 4;
+}
+
+message BlockChain {
+    repeated Block blocks = 2;
+}
